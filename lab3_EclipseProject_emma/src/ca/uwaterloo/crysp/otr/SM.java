@@ -435,6 +435,7 @@ public class SM {
 	//SM.step2b(smstate, combined_secret, prov);
 	public static byte[] step2b(SMState bstate, byte[] secret, Provider prov) throws OTRException
 	{
+		//step2a(bstate, secret, 0, prov);
 		System.out.println("Step 2b initiated");
 	    /* Convert the given secret to the proper form and store it */
 		Util.checkBytes("secret", secret);
@@ -443,12 +444,12 @@ public class SM {
 
 	    MPI[] msg2 = new MPI[11];
 	    MPI mod = new MPI(MODULUS_S);
-	    if(bstate.g1==null){
+	    /*if(bstate.g1==null){
 	    	System.out.println("bstate.g1 is null");
 	    } else if (bstate.x2==null){
 	    	System.out.println("bstate.x2 is null");
-	    }else{ System.out.println("nothing in step2b appears to be null");}
-	    //msg2[0] = prov.powm(bstate.g1, bstate.x2, new MPI(MODULUS_S));
+	    }else{ System.out.println("nothing in step2b appears to be null");}*/
+	    msg2[0] = prov.powm(bstate.g1, bstate.x2, new MPI(MODULUS_S));
 	    MPI[] res = proofKnowLog(bstate.g1,bstate.x2,3,prov);
 	    msg2[1]=res[0];
 	    msg2[2]=res[1];
@@ -460,7 +461,7 @@ public class SM {
 
 	    /* Calculate P and Q values for Bob */
 	    MPI r = randomExponent(prov);
-	    if(bstate.g3==null)System.out.println("bstate.g3 (set in step 2a) null");
+	    //if(bstate.g3==null)System.out.println("bstate.g3 (set in step 2a) null");
 	    //MPI r = new MPI(SM.GENERATOR_S);
 
 	    bstate.p = prov.powm(bstate.g3, r, new MPI(MODULUS_S));

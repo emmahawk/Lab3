@@ -37,6 +37,8 @@ public class OTRException extends Exception
 	 */
 	public OTRException(Throwable t) {
 		super(t.getMessage());
+		System.out.println(t.getMessage());
+		t.printStackTrace();
 	}
 	
 	/** Constructor

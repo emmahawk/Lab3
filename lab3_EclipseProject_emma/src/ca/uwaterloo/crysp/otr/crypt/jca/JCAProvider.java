@@ -112,7 +112,7 @@ public class JCAProvider extends ca.uwaterloo.crysp.otr.crypt.Provider {
 		BigInteger res = b.modPow(e, m);
 		if(res == null) System.out.println("BigInteger res is null in JCAProvider.powm");
 		MPI mp = JCAMPI.toMPI(res);
-		System.out.println("mpi: "+mp.getValue());
+		//System.out.println("mpi: "+mp.getValue());
 		//return JCAMPI.toMPI(res);
 		return mp;
 	}

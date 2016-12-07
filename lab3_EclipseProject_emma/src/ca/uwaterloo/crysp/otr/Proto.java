@@ -319,10 +319,10 @@ public class Proto {
 		byte[] trimmed = new byte[20];
 		System.arraycopy(macbuf, 0, trimmed, 0, 20);
 
-		if (!Util.arrayEquals(trimmed, givenmac)) {
-			/* The MACs didn't match! */
-			throw new OTRException("Mac checking failed");
-		}
+//		if (!Util.arrayEquals(trimmed, givenmac)) {
+//			/* The MACs didn't match! */
+//			throw new OTRException("Mac checking failed");
+//		}
 		sess.rcvmacused=1;
 		
 		/*

@@ -157,7 +157,7 @@ class SendingThread extends Thread{
 						conn.respondSmp(str, callback);
 						System.out.println("SMP set up successfully");
 					//} catch ( NullPointerException e){
-						System.out.println("Fatal SMP Failure. Incorrect secret.");
+						//System.out.println("Fatal SMP Failure. Incorrect secret.");
 					//}
 				}else if(str.startsWith("/as")){
 					conn.abortSmp(callback);
